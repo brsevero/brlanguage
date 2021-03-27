@@ -14,7 +14,7 @@
    1. cadeia de caractere
    1. Arranjos unidimencionais
 
-1. COnjunto de operadores: #colocar a ordem de precedência e associatividade
+1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
    1. Aritméticos:
       1. "*" multiplicação
       1. "/" divisão
