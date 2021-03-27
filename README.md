@@ -2,59 +2,55 @@
 ##### Programming Language Project for Compiladores 2020.1 - UFAL
 
 
+
+
 1. Indetificadores não podem conter numeros 
-2. A linguagem é toda em português
-3. Tipos de dados primitivos:
-  - inteiro
-  - ponto flutuante
-  - caractere
-  - booleano
-  - cadeia de caractere
-  - Arranjos unidimencionais
+1. A linguagem é toda em português
+1. Tipos de dados primitivos:
+   1. inteiro
+   1. ponto flutuante
+   1. caractere
+   1. booleano
+   1. cadeia de caractere
+   1. Arranjos unidimencionais
 
-4. COnjunto de operadores: #colocar a ordem de precedência e associatividade
-  - Aritméticos:
-    - "*" multiplicação
-    - "/" divisão
-    - "-" subtração
-    - "+" adição
-    - "%" resto da divisão
+1. COnjunto de operadores: #colocar a ordem de precedência e associatividade
+   1. Aritméticos:
+      1. "*" multiplicação
+      1. "/" divisão
+      1. "-" subtração
+      1. "+" adição
+      1. "%" resto da divisão
 
-  - Relacionais:
-    - inteiros:
-      - "=="
-      - "!="
-      - "<"
-      - ">"
-      - "<="
-      - ">="
-    - Caractere:
-      - Não Possui
-    - Cadeia de caracteres:
-      - Não possui
+    1. Relacionais:
+       1. inteiros:
+          1. "=="
+          1. "!="
+          1. "<"
+          1. ">"
+          1. "<="
+          1. ">="
+        1. Caractere:
+           1. Não Possui
+      1. Cadeia de caracteres:
+         1. Não possui
 
-  - Lógicos:
-    - "!" negação
-    - "&&" and
-    - "||" or
+  1. Lógicos:
+     1. "!" negação
+     1. "&&" and
+     1. "||" or
 
-  - Concatenação:
-    - Caractere e Cadeia de caracteres:
-      - "+"
-    - Numéricos e Booleanos:
-      - Não possui
+  1. Concatenação:
+     1. Caractere e Cadeia de caracteres:
+        1. "+"
+     1. Numéricos e Booleanos:
+        1. Não possui
 
 
-. Contantes Literais de cada Tipo:
+1. Contantes Literais de cada Tipo:
 
-. Operacoes de cada tipo
+1. Operacoes de cada tipo
 
 funcao bruno(argumentos):
   imprime("Olá mundo!\n");
-
-
-
-
-https://www.geeksforgeeks.org/how-to-create-a-programming-language-using-python/
-https://pt.wikipedia.org/wiki/Express%C3%A3o_regular
 
