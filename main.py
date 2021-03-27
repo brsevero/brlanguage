@@ -1,7 +1,4 @@
-# brlanguage
-Programming Language Project for Compiladores 2020.1 - UFAL
-
-
+"""""
 1. Indetificadores não podem conter numeros 
 2. A linguagem é toda em português
 3. Tipos de dados primitivos:
@@ -57,4 +54,4 @@ funcao bruno(argumentos):
 
 https://www.geeksforgeeks.org/how-to-create-a-programming-language-using-python/
 https://pt.wikipedia.org/wiki/Express%C3%A3o_regular
-
+"""""
