@@ -7,12 +7,12 @@
 1. Indetificadores não podem conter numeros 
 1. A linguagem é toda em português
 1. Tipos de dados primitivos:
-   1. inteiro
-   1. ponto flutuante
-   1. caractere
-   1. booleano
-   1. cadeia de caractere
-   1. Arranjos unidimencionais
+   1. inteiro - INT
+   1. ponto flutuante - FLOAT
+   1. caractere - CHAR
+   1. booleano - BOOL
+   1. cadeia de caractere - STRING
+   1. Arranjos unidimencionais - ARRAY
 
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
    1. Aritméticos:
