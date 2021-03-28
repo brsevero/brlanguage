@@ -1,9 +1,6 @@
 # brlanguage
 ##### Programming Language Project for Compiladores 2020.1 - UFAL
 
-
-
-
 1. Indetificadores não podem conter numeros 
 1. A linguagem é toda em português
 1. Tipos de dados primitivos:
@@ -43,10 +40,10 @@
         1. Numéricos e Booleanos:
            1. Não possui
 
-
-1. Contantes Literais de cada Tipo:
-
-1. Operacoes de cada tipo
+1. Operacoes de cada tipo:
+   1. inteiro - INT:
+ 
+3. Contantes Literais de cada Tipo:
 
 funcao bruno(argumentos):
   imprime("Olá mundo!\n");
