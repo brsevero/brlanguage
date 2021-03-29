@@ -10,18 +10,25 @@
 1. Estrutura Geral de Um Programa
    - Para se criar um programa em BRLanguage deve-se escrever um código, obdecendo as regras da linguagem, e colocar a extensão ".brl".
    - BRLanguage funciona com um conjunto de funções, onde a função que começa o programa é denominada "Principal". A função Principal retorna um tipo definido pelo programador e possui a sintaxe abaixo:
-   '''
+   
+   ```
    
    funcao principal(){
    
-   }
+   };
+   
+   ```
+   - Ao final de cada comando deve-se colocar o delimitador de instrução ";".
+   - Os delimitadores de escopo são:
+     1. Inicar: "{"
+     1. Finalizar: "}"
+   - Um programa em .brl deve seguir as regras de identação para um melhor entendimento
+   - A linguagem permite comentários por linha utilizando o delimitador de comentários: "#"
 
-   '''
+1. Características Léxicas:
+   - Indetificadores não podem conter numeros
 
 
-
-1. Indetificadores não podem conter numeros 
-1. A linguagem é toda em português
 1. Tipos de dados primitivos:
    1. inteiro - INT
    1. ponto flutuante - FLOAT
