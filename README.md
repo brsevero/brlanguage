@@ -88,8 +88,42 @@
 1. Operadores:
    - Temos os seguintes operadores na linguagem:    
       **Aritméticos:**
+      
+      |Operador|Operação|
       | :---: | :---: |
-      |\+|Adição|
+      | \+ | adição |
+      | \- | subtração |
+      |\*| multiplicação |
+      |\/| divisão |
+      |\-| negativo unário |
+      
+      **Relacionais:**
+      
+      |Operador|Operação|
+      | :---: | :---: |
+      | \> | maior que |
+      | \< | menor que |
+      | \= | igual |
+      | \!= | diferente de |
+      | \>= | maior ou igual |
+      | \<= | memor ou igual |
+      
+      **Lógicos:**
+      
+      |Operador|Operação|
+      | :---: | :---: |
+      | VERDADE | verdadeiro |
+      | FALSO | falso |
+      | NAO | negação |
+      | E | conjunção |
+      | OU | disjunção |
+      
+      **Concatenção de Cadeias de Caracteres:**
+      
+      |Operador|Operação|
+      | :---: | :---: |
+      | +++ | concatenação |
+      
    
    
    
