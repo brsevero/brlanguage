@@ -48,6 +48,18 @@
       1. FRASE - cadeia de caractere de x tamanho máximo de caracteres
       1. *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
 
+1. Operação Suportadas:
+   - Todos os tipos primitivos suportam as operações descritas na tabela abaixo, com os valores de seu tipo específico, ou segundo as regras de coerções:
+     |**Tipo**|**Operações Suportadas**|
+     | :---: | :---: |
+     | INTEIRO | atribuição, aritméticas, relacionais |
+     | FLUTUANTE | atribuição, aritméticas, relacionais |
+     | CARACTERE | atribuição, relacionais |
+     | BOOLEANO | atribuição, relacionais |
+     | FRASE | atribuição, relacionais, concatenação |
+     | *vetor* | atribuição |
+
+
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
    1. Aritméticos:
       1. "*" multiplicação
