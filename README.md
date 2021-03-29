@@ -3,12 +3,12 @@
 #### A BRLanguage foi pensanda para ser uma linguagem simples, fácil de implementar algorítmos mais básico e para aprender conceitualmente sobre programação, além de ser toda em português o que permite um aprendizado de conceitos como tipos de dados e estruturas de controles de forma mais simples.
 
 1. Características Gerais:
-   - A linguagem é toda em português
-   - A linguagem pertece ao paradigma Imperativo
-   - O método utilizado de implementação é a compilação
+   - A linguagem é toda em português;
+   - A linguagem pertece ao paradigma Imperativo;
+   - O método utilizado de implementação é a compilação.
    
 1. Estrutura Geral de Um Programa
-   - Para se criar um programa em BRLanguage deve-se escrever um código, obdecendo as regras da linguagem, e colocar a extensão ".brl".
+   - Para se criar um programa em BRLanguage deve-se escrever um código, obdecendo as regras da linguagem, e colocar a extensão ".brl";
    - BRLanguage funciona com um conjunto de funções, onde a função que começa o programa é denominada "Principal". A função Principal retorna um tipo definido pelo programador e possui a sintaxe abaixo:
    
    ```
@@ -18,24 +18,35 @@
    };
    
    ```
-   - Ao final de cada comando deve-se colocar o delimitador de instrução ";".
+   - Ao final de cada comando deve-se colocar o delimitador de instrução ";" ;
    - Os delimitadores de escopo são:
-     1. Inicar: "{"
-     1. Finalizar: "}"
-   - Um programa em .brl deve seguir as regras de identação para um melhor entendimento
-   - A linguagem permite comentários por linha utilizando o delimitador de comentários: "#"
+     1. Inicar: "{";
+     1. Finalizar: "}";
+   - Um programa em .brl deve seguir as regras de identação para um melhor entendimento;
+   - A linguagem permite comentários por linha utilizando o delimitador de comentários: "#".
 
 1. Características Léxicas:
-   - Indetificadores não podem conter numeros
+   - Identificadores não podem conter numeros;
+   - Identificadores são em lowercase, ou seja, em minúsculo;
+   - Identificadores devem ter no máximo tamanho 8 e não podem conter caracteres especiais, apenas o alfabeto latino padrão, e não devem coincidir com as palavras reservadas da linguagem.
+   - Lista de palavras reservadas da linguagem:
+     | **Especificação de Tipo** | **Função** | **Comandos** | **Operadores Lógicos** |
+     | :------:| :------: | :------: | :------: |
+     | INTEIRO | FUNCAO | SE | VERDADE |
+     | FLUTUANTE | PRINCIPAL | SENAO | FALSO |
+     | CARACTERE |  | ENTAO | NAO |
+     | BOOLEANO |  | FAÇA | E |
+     | FRASE |  | ENQUANTO | OU |
+     | VETOR |  | teste3 |  |
 
 
 1. Tipos de dados primitivos:
-   1. inteiro - INT
-   1. ponto flutuante - FLOAT
-   1. caractere - CHAR
-   1. booleano - BOOL
-   1. cadeia de caractere - STRING
-   1. Arranjos unidimencionais - ARRAY
+   1. inteiro - INTEIRO
+   1. ponto flutuante - FLUTUANTE
+   1. caractere - CARACTERE
+   1. booleano - BOOLEANO
+   1. cadeia de caractere - FRASE
+   1. Arranjos unidimencionais - VETOR
 
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
    1. Aritméticos:
