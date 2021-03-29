@@ -192,8 +192,10 @@
       
       ```
       - A estrutura FAZ ENQUANTO permite que se repita uma instrução pelo menos uma vez, mesmo que a expressão seja falsa.
+      
       Sintaxe:
       ```
+      
       FAZ{
          lista_de_comandos;
       }ENQUANTO(expressao_logica);
