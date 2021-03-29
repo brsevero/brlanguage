@@ -13,7 +13,7 @@
    
    ```
    
-   funcao principal(){
+   FUNCAO PRINCIPAL(){
    
    };
    
