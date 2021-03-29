@@ -37,27 +37,29 @@
      | CARACTERE |  | ENTAO | NAO |
      | BOOLEANO |  | FAÇA | E |
      | FRASE |  | ENQUANTO | OU |
-
+     
 1. Especificação de Tipos:
    - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
    - Lista de tipos definidos em BRLanguage:
-      1. INTEIRO - Inteiro de x tamanho em bits
-      1. FLUTUANTE - Ponto flutuante de x tamanho em bits
-      1. CARACTERE - Caractere
-      1. BOOLEANO - Booleano
-      1. FRASE - cadeia de caractere de x tamanho máximo de caracteres
-      1. *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
+     - INTEIRO - Inteiro de x tamanho em bits
+     - FLUTUANTE - Ponto flutuante de x tamanho em bits
+     - CARACTERE - Caractere
+     - BOOLEANO - Booleano
+     - FRASE - cadeia de caractere de x tamanho máximo de caracteres
+     - *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
+     
 
-1. Operação Suportadas:
-   - Todos os tipos primitivos suportam as operações descritas na tabela abaixo, com os valores de seu tipo específico, ou segundo as regras de coerções:
-     |**Tipo**|**Operações Suportadas**|
-     | :---: | :---: |
-     | INTEIRO | atribuição, aritméticas, relacionais |
-     | FLUTUANTE | atribuição, aritméticas, relacionais |
-     | CARACTERE | atribuição, relacionais |
-     | BOOLEANO | atribuição, relacionais |
-     | FRASE | atribuição, relacionais, concatenação |
-     | *vetor* | atribuição |
+   1. Operação Suportadas:
+      - Todos os tipos primitivos suportam as operações descritas na tabela abaixo, com os valores de seu tipo específico, ou segundo as regras de coerções:
+        |**Tipo**|**Operações Suportadas**|
+        | :---: | :---: |
+        | INTEIRO | atribuição, aritméticas, relacionais |
+        | FLUTUANTE | atribuição, aritméticas, relacionais |
+        | CARACTERE | atribuição, relacionais |
+        | BOOLEANO | atribuição, relacionais |
+        | FRASE | atribuição, relacionais, concatenação |
+        | *vetor* | atribuição |
+   1. Coerção:
 
 
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
