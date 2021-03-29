@@ -85,3 +85,32 @@
           - *VETOR*: iniciado com o valor padrão do tipo no qual foi definido.
     1. Escopo:
        1. Na BRlanguege, todas as variáveis são globais, logo vistas em todo o programa.
+1. Operadores:
+   - Temos os seguintes operadores na linguagem:    
+      **Aritméticos:**
+      | :---: | :---: |
+      |\+|Adição|
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
