@@ -103,7 +103,7 @@
       | :---: | :---: |
       | \> | maior que |
       | \< | menor que |
-      | \= | igual |
+      | \== | igual |
       | \!= | diferente de |
       | \>= | maior ou igual |
       | \<= | memor ou igual |
@@ -124,7 +124,20 @@
       | :---: | :---: |
       | +++ | concatenação |
       
-   
+    1. Precedência e Associatividade:
+       - Conforme a tabela abaixo, da ordem da mais alta para a mais baixa vemos a Precedência e os operadores segue a Associatividade espeficificada:
+          |Operador|Associatividade|
+          | :---: | :---: |
+          | NAO | direita para esquerda |
+          |\- (negativo unário)| direita para esquerda |
+          | \* \/ | esquerda para direita |
+          | \+ \- | esquerda para direita |
+          | \< \<= \> \>= | esquerda para direita |
+          | \== \!= | esquerda para direita |
+          | E | esquerda para direita |
+          | OU | esquerda para direita |
+        - Podemos utilizar parênteses para alterar a precedência dos operadores acima.
+
    
    
    
