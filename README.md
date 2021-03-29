@@ -37,7 +37,7 @@
      | CARACTERE |  | ENTAO | NAO |
      | BOOLEANO |  | FAZ | E |
      | FRASE |  | ENQUANTO | OU |
-     |||INTERADOR||
+     |||ITERADOR||
      
 1. Especificação de Tipos:
    - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
@@ -152,7 +152,7 @@
       
       SE(expressao_logica){
          lista_de_comandos;
-      }
+      };
       
       ```
       ou
@@ -163,7 +163,7 @@
       }
       ENTAO(espressao_logica){
          lista_de_comandos_2;
-      }
+      };
       ```
       - Usamos uma expressao lógica para controlar essa estrutura condicional.
       - Se uma forma mais abrangente de verificação for necessária temos o SE's aninhados, utilizando o comando SENAO.
@@ -177,7 +177,7 @@
       }
       ENTAO(espressao_logica){
          lista_de_comandos_3;
-      }
+      };
       ```
    1. Estrutura iterativa com controle lógico:
       | Estrutura | Comando em Brl |
@@ -189,7 +189,7 @@
       ```
       ENQUANTO(expressao_logica){
          lista_de_comandos;
-      }
+      };
       
       ```
       - A estrutura FAZ ENQUANTO permite que se repita uma instrução pelo menos uma vez, mesmo que a expressão seja falsa.
@@ -205,7 +205,16 @@
    1. Estrutura iterativa controlada por contador:
       | Estrutura | Comando em Brl |
       | :---: | :---: |
-      | for | INTERADOR |
+      | for | ITERADOR |
+      - A estrutura ITERADOR permite que seja repetida uma instrução composta por um número específico de vezes. O corpo da estrutura é executado zero ou mais vezes até que a condição seja verificada como falsa.
+      Sintaxe:
+      ```
+      
+      ITERADOR(inicialização, condicao, incremento){
+         lista_de_comandos;
+      };
+      
+      ```
    
    
    
