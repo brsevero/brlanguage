@@ -60,6 +60,31 @@
         | FRASE | atribuição, relacionais, concatenação |
         | *vetor* | atribuição |
    1. Coerção:
+      - A linguagem prevê coerção autômatica entre o tipo INTEIRO e FLUTUANTE. Onde, se um número do tipo ponto flutuante for atribuído a uma variável do tipo inteiro, o valor da variável será apenas a parte inteira do ponto flutuando e na forma de um inteiro se atribuído a um ponto flutuante, a parte  inteira será o número e a parte decimal será zero.
+
+1. Variáveis:
+   1. Declaração:
+      1. A declaração da variável tem a seguinte regra geral:
+         ```
+         TIPO identificador_da_variável;
+         
+         ```
+   1. Iniciação Padrão:
+      1. Pode ser feita junto da declaração da seguinte forma:
+         ```
+         
+         TIPO identificador_da_variável = valor_do_tipo;
+         
+         ```
+       1. Enquanto não tiver um valor atribuído a uma variável, ela terá um valor inicial padrão como se segue:
+          - INTEIRO: iniciado com valor zero(0);
+          - FLUTUANTE: iniciado com valor zero(0.0);
+          - CARACTERE: iniciado com valor " " (espaço em branco, 32 no código ASCII);
+          - BOOLEANO: iniciado com valor FALSE;
+          - FRASE:  iniciado com o valor "" (cadeia de caracteres vazia);
+          - *VETOR*: iniciado com o valor padrão do tipo no qual foi definido.
+    1. Escopo:
+       1. Na BRlanguege, todas as variáveis são globais, logo vistas em todo o programa.
 
 
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
