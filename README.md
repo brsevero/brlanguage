@@ -171,7 +171,7 @@
       SE(expressao_logica){
          lista_de_comandos_1;
       }
-      ENTAO(expressao_logica){
+      SENAO(expressao_logica){
          lista_de_comandos_2;
       }
       ENTAO(espressao_logica){
