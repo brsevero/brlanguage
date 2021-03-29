@@ -37,16 +37,16 @@
      | CARACTERE |  | ENTAO | NAO |
      | BOOLEANO |  | FAÇA | E |
      | FRASE |  | ENQUANTO | OU |
-     | VETOR |  | teste3 |  |
 
-
-1. Tipos de dados primitivos:
-   1. inteiro - INTEIRO
-   1. ponto flutuante - FLUTUANTE
-   1. caractere - CARACTERE
-   1. booleano - BOOLEANO
-   1. cadeia de caractere - FRASE
-   1. Arranjos unidimencionais - VETOR
+1. Especificação de Tipos:
+   - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
+   - Lista de tipos definidos em BRLanguage:
+      1. INTEIRO - Inteiro de x tamanho em bits
+      1. FLUTUANTE - Ponto flutuante de x tamanho em bits
+      1. CARACTERE - Caractere
+      1. BOOLEANO - Booleano
+      1. FRASE - cadeia de caractere de x tamanho máximo de caracteres
+      1. *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
 
 1. Conjunto de operadores: #colocar a ordem de precedência e associatividade
    1. Aritméticos:
