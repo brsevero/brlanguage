@@ -35,7 +35,7 @@
      | INTEIRO | FUNCAO | SE | VERDADE |
      | FLUTUANTE | PRINCIPAL | SENAO | FALSO |
      | CARACTERE |  | ENTAO | NAO |
-     | BOOLEANO |  | FAÇA | E |
+     | BOOLEANO |  | FAZ | E |
      | FRASE |  | ENQUANTO | OU |
      
 1. Especificação de Tipos:
@@ -146,6 +146,59 @@
       | if | SE |
       | if \/ else | SE \/ ENTAO |
       | if \/ elseif \/ else | SE \/ SENAO \/ ENTAO |
+      - A instrução SE controla a fluxo condicional. O bloco da instrução SE é executado se o valor da expressão for diferente de zero. Temos duas sintaxes para essa estrutura:
+      ```
+      
+      SE(expressao_logica){
+         lista_de_comandos;
+      }
+      
+      ```
+      ou
+      ```
+      
+      SE(expressao_logica){
+         lista_de_comandos_1;
+      }
+      ENTAO(espressao_logica){
+         lista_de_comandos_2;
+      }
+      ```
+      - Usamos uma expressao lógica para controlar essa estrutura condicional.
+      - Se uma forma mais abrangente de verificação for necessária temos o SE's aninhados, utilizando o comando SENAO.
+      ```
+      
+      SE(expressao_logica){
+         lista_de_comandos_1;
+      }
+      ENTAO(expressao_logica){
+         lista_de_comandos_2;
+      }
+      ENTAO(espressao_logica){
+         lista_de_comandos_3;
+      }
+      ```
+   1. Estrutura iterativa com controle lógico:
+      | Estrutura | Comando em Brl |
+      | :---: | :---: |
+      | while | ENQUANTO | 
+      | do while | FAZ ENQUANTO |
+      - A estrutura ENQUANTO permite que se repita uma instrução até que seja verificado que uma expressão é falsa.
+      Sintaxe:
+      ```
+      ENQUANTO(expressao_logica){
+         lista_de_comandos;
+      }
+      
+      ```
+      - A estrutura FAZ ENQUANTO permite que se repita uma instrução pelo menos uma vez, mesmo que a expressão seja falsa.
+      Sintaxe:
+      ```
+      FAZ{
+         lista_de_comandos;
+      }ENQUANTO(expressao_logica);
+      
+      ```
    
    
    
