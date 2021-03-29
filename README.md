@@ -37,6 +37,7 @@
      | CARACTERE |  | ENTAO | NAO |
      | BOOLEANO |  | FAZ | E |
      | FRASE |  | ENQUANTO | OU |
+     |||INTERADOR||
      
 1. Especificação de Tipos:
    - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
@@ -201,6 +202,10 @@
       }ENQUANTO(expressao_logica);
       
       ```
+   1. Estrutura iterativa controlada por contador:
+      | Estrutura | Comando em Brl |
+      | :---: | :---: |
+      | for | INTERADOR |
    
    
    
