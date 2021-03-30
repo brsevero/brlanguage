@@ -2,7 +2,7 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {VARIAVEL, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR}
+    tokens = {VARIAVEL, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
 
     literals = { '=', '+', '-', '/', 
                 '*', '(', ')', ',', ';'}
@@ -27,6 +27,7 @@ class analisador_lexico(Lexer):
     VARIAVEL['else'] = SENAO
     VARIAVEL['while'] = ENQUANTO
     VARIAVEL['for'] = IDENTADOR
+    VARIAVEL['print'] = IMPRIMIR
 
 
     def NUMERO(self, t):
