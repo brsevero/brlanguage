@@ -34,7 +34,7 @@
      | :------:| :------: | :------: | :------: |
      | INTEIRO | FUNCAO | SE | VERDADE |
      | FLUTUANTE | PRINCIPAL | SENAO | FALSO |
-     | CARACTERE |  | ENTAO | NAO |
+     | CARACTERE |  | CASO_CONTRARIO | NAO |
      | BOOLEANO |  | FAZ | E |
      | FRASE |  | ENQUANTO | OU |
      |||ITERADOR||
@@ -146,7 +146,7 @@
       | :---: | :---: |
       | if | SE |
       | if \/ else | SE \/ ENTAO |
-      | if \/ elseif \/ else | SE \/ SENAO \/ ENTAO |
+      | if \/ elseif \/ else | SE \/ SENAO \/ CASO_CONTRARIO |
       - A instrução SE controla a fluxo condicional. O bloco da instrução SE é executado se o valor da expressão for diferente de zero. Temos duas sintaxes para essa estrutura:
       ```
       
@@ -183,7 +183,7 @@
       | Estrutura | Comando em Brl |
       | :---: | :---: |
       | while | ENQUANTO | 
-      | do while | FAZ ENQUANTO |
+      | do while | FAZER ENQUANTO |
       - A estrutura ENQUANTO permite que se repita uma instrução até que seja verificado que uma expressão é falsa.
       Sintaxe:
       ```
@@ -197,7 +197,7 @@
       Sintaxe:
       ```
       
-      FAZ{
+      FAZER{
          lista_de_comandos;
       }ENQUANTO(expressao_logica);
       
