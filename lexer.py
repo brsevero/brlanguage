@@ -10,10 +10,10 @@ class analisador_lexico(Lexer):
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    FUNCAO = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     IGUALADOR = r'=='
-    NUMERO = r'\d+'
+    INTEIRO = r'\d+'
     MAIS = r'\+'
     MENOS = r'-'
     VEZES = r'\*'
@@ -21,13 +21,12 @@ class analisador_lexico(Lexer):
     PARENTESES_ESQ = r'\('
     PARENTESES_DIR = r'\)'
 
-    FUNCAO['if'] = SE
-    FUNCAO['elif'] = MAS_SE
-    FUNCAO['else'] = SENAO
-    FUNCAO['while'] = ENQUANTO
-    FUNCAO['IDENTADOR'] = IDENTADOR
-    FUNCAO['IMPRIMIR'] = IMPRIMIR
-    FUNCAO['RETORNE'] = 
+    VARIAVEL['SE'] = SE
+    VARIAVEL['MAS_SE'] = MAS_SE
+    VARIAVEL['SENAO'] = SENAO
+    VARIAVEL['ENQUANTO'] = ENQUANTO
+    VARIAVEL['IDENTADOR'] = IDENTADOR
+    VARIAVEL['IMPRIMIR'] = IMPRIMIR
 
 
     def NUMERO(self, t):
