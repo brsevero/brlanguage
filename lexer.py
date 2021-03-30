@@ -1,26 +1,23 @@
 from sly import Lexer
 
 class Meulexico(Lexer):
-    #lista de tokens que eu preciso obrigatoriamente e sempre em UPCASE
-    #lista de coisas ignoradas em ER sempre com aspas simples
-    #lista de ER para os tokens
 
-    tokens = {ID, ATRIBUICAO, NUMERO, SOMA, IF, ELSE, WHILE}
+    tokens = {VARIAVEL, ATRIBUICAO, NUMERO, SOMA, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR}
 
-    #ignorar coisa só precisa comecar com "ignore_"
     ignore = ' \t'
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    ID = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     NUMERO = r'\d+'
     SOMA = r'\+'
 
-    # Special cases
-    ID['if'] = IF
-    ID['else'] = ELSE
-    ID['while'] = WHILE
+    VARIAVEL['if'] = SE
+    VARAIVEL['elif'] = MAS_SE
+    VARIAVEL['else'] = SENAO
+    VARIAVEL['while'] = ENQUANTO
+    VARIAVEL['for'] = IDENTADOR
 
     def NUMERO(self, t):
         t.value = int(t.value)
