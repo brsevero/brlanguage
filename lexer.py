@@ -2,9 +2,9 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
+    tokens = {FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES, DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR,CHAVE_ESQ, CHAVE_DIR4, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
 
-    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
+    literals = { '=', '+', '-', '/', '*', '(', ')','{','}', ',', ';'}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
@@ -25,8 +25,9 @@ class analisador_lexico(Lexer):
     FUNCAO['elif'] = MAS_SE
     FUNCAO['else'] = SENAO
     FUNCAO['while'] = ENQUANTO
-    FUNCAO['for'] = IDENTADOR
-    FUNCAO['print'] = IMPRIMIR
+    FUNCAO['IDENTADOR'] = IDENTADOR
+    FUNCAO['IMPRIMIR'] = IMPRIMIR
+    FUNCAO['RETORNE'] = 
 
 
     def NUMERO(self, t):
@@ -38,7 +39,10 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = """IMPRIMIR"""
+    data = """VAZIO PRINCIPAL(){
+   IMPRIMIR("Alô Mundo!");
+   RETORNE ;
+}"""
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
         print('type=%r, value=%r' % (tok.type, tok.value))
