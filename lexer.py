@@ -2,7 +2,7 @@ from sly import Lexer
 
 class Meulexico(Lexer):
 
-    tokens = {VARIAVEL, ATRIBUICAO, NUMERO, SOMA, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR}
+    tokens = {VARIAVEL, ATRIBUICAO, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
@@ -11,7 +11,12 @@ class Meulexico(Lexer):
     VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     NUMERO = r'\d+'
-    SOMA = r'\+'
+    MAIS = r'\+'
+    MENOS = r'-'
+    VEZES = r'\*'
+    DIVIDIR = r'/'
+    PARENTESES_ESQ = r'\('
+    PARENTESES_DIR = r'\)'
 
     VARIAVEL['if'] = SE
     VARAIVEL['elif'] = MAS_SE
