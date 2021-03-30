@@ -1,14 +1,13 @@
 # Especificação da Linguagem
 # BRLanguage
-### 
-#### A BRLanguage foi pensanda para ser uma linguagem simples, fácil de implementar algorítmos mais básico e para aprender conceitualmente sobre programação, além de ser toda em português o que permite um aprendizado de conceitos como tipos de dados e estruturas de controles de forma mais simples.
+##### Programming Language Project for Compiladores 2020.1 - UFAL -  A BRLanguage foi pensanda para ser uma linguagem simples, fácil de implementar algorítmos mais básico e para aprender conceitualmente sobre programação, além de ser toda em português o que permite um aprendizado de conceitos como tipos de dados e estruturas de controles de forma mais simples.
 
-1. Características Gerais:
+### 1. Características Gerais:
    - A linguagem é toda em português;
    - A linguagem pertece ao paradigma Imperativo;
    - O método utilizado de implementação é a compilação.
    
-1. Estrutura Geral de Um Programa
+### 2. Estrutura Geral de Um Programa
    - Para se criar um programa em BRLanguage deve-se escrever um código, obdecendo as regras da linguagem, e colocar a extensão ".brl";
    - BRLanguage funciona com um conjunto de funções, onde a função que começa o programa é denominada "Principal". A função Principal retorna um tipo definido pelo programador e possui a sintaxe abaixo:
    
@@ -26,7 +25,7 @@
    - Um programa em .brl deve seguir as regras de identação para um melhor entendimento;
    - A linguagem permite comentários por linha utilizando o delimitador de comentários: "#".
 
-1. Características Léxicas:
+### 3. Características Léxicas:
    - Identificadores não podem conter numeros;
    - Identificadores são em lowercase, ou seja, em minúsculo;
    - Identificadores devem ter no máximo tamanho 8 e não podem conter caracteres especiais, apenas o alfabeto latino padrão, e não devem coincidir com as palavras reservadas da linguagem.
@@ -40,7 +39,7 @@
      | FRASE | RETORNE | ENQUANTO | OU |
      |VAZIO||ITERADOR||
      
-1. Especificação de Tipos:
+### 4. Especificação de Tipos:
    - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
    - Lista de tipos definidos em BRLanguage:
      - INTEIRO - Inteiro de x tamanho em bits
@@ -65,7 +64,7 @@
    1. Coerção:
       - A linguagem prevê coerção autômatica entre o tipo INTEIRO e FLUTUANTE. Onde, se um número do tipo ponto flutuante for atribuído a uma variável do tipo inteiro, o valor da variável será apenas a parte inteira do ponto flutuando e na forma de um inteiro se atribuído a um ponto flutuante, a parte  inteira será o número e a parte decimal será zero.
 
-1. Variáveis:
+### 5. Variáveis:
    1. Declaração:
       1. A declaração da variável tem a seguinte regra geral:
          ```
@@ -89,7 +88,7 @@
     1. Escopo:
        1. Na BRlanguege, todas as variáveis são globais, logo vistas em todo o programa.
 
-1. Operadores:
+### 6. Operadores:
    - Temos os seguintes operadores na linguagem:    
       **Aritméticos:**
       
@@ -142,7 +141,7 @@
           | OU | esquerda para direita |
         - Podemos utilizar parênteses para alterar a precedência dos operadores acima.
 
-1. Instruções:
+### 7. Instruções:
    1. Estrutura condicional de uma e duas vias:
       | Estrutura | Comando em Brl |
       | :---: | :---: |
@@ -236,7 +235,7 @@
       LER(TIPO, variavel_para_referencia);
 
       ```
-1. Atribuição:
+### 8. Atribuição:
    A atribuição é feita com operador "=", com a associatividade da direita para a esquerda, sempre.
 
    Exemplo:
@@ -247,7 +246,7 @@
    ```
    *o valor da variável b está agora sendo atribuído para a*
 
-1. Funções:
+### 9. Funções:
    - Na BRLanguage, temos a função PRINCIPAL e ela é obrigatória pois é por ela que o compilador começa sua execução.
    - As funções devem ser definidas antes de serem chamadas.
    - A passagem de parâmetro ocorre por valor na liguagem.
@@ -265,7 +264,7 @@
    }
 
    ```
-1. Exemplos:
+### 10. Exemplos:
    - Alô Mundo:
    ```
 
