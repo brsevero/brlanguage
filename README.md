@@ -1,5 +1,6 @@
+# Especificação da Linguagem
 # BRLanguage
-### Programming Language Project for Compiladores 2020.1 - UFAL
+### 
 #### A BRLanguage foi pensanda para ser uma linguagem simples, fácil de implementar algorítmos mais básico e para aprender conceitualmente sobre programação, além de ser toda em português o que permite um aprendizado de conceitos como tipos de dados e estruturas de controles de forma mais simples.
 
 1. Características Gerais:
@@ -372,3 +373,5 @@
    
 
 
+
+# Especificação do Interpretador
