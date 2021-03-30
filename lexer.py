@@ -2,9 +2,9 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES, DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR,CHAVE_ESQ, CHAVE_DIR4, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
-
-    literals = { '=', '+', '-', '/', '*', '(', ')','{','}', ',', ';'}
+    tokens = {VARIAVEL, FUNCAO, ATRIBUICAO, IGUALADOR, INTEIRO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR}
+    # SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR
+    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
@@ -21,12 +21,13 @@ class analisador_lexico(Lexer):
     PARENTESES_ESQ = r'\('
     PARENTESES_DIR = r'\)'
 
-    VARIAVEL['SE'] = SE
-    VARIAVEL['MAS_SE'] = MAS_SE
-    VARIAVEL['SENAO'] = SENAO
-    VARIAVEL['ENQUANTO'] = ENQUANTO
-    VARIAVEL['IDENTADOR'] = IDENTADOR
-    VARIAVEL['IMPRIMIR'] = IMPRIMIR
+
+    VARIAVEL['SE'] = FUNCAO
+    VARIAVEL['MAS_SE'] = FUNCAO
+    VARIAVEL['SENAO'] = FUNCAO
+    VARIAVEL['ENQUANTO'] = FUNCAO
+    VARIAVEL['IDENTADOR'] = FUNCAO
+    VARIAVEL['IMPRIMIR'] = FUNCAO
 
 
     def NUMERO(self, t):
@@ -38,10 +39,7 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = """VAZIO PRINCIPAL(){
-   IMPRIMIR("Alô Mundo!");
-   RETORNE ;
-}"""
+    data = """IMPRIMIR"""
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
         print('type=%r, value=%r' % (tok.type, tok.value))
