@@ -39,7 +39,10 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = 'x = 3 + 42 * (s - t)'
+    data = """VAZIO PRINCIPAL(){
+   IMPRIMIR("Alô Mundo!");
+   RETORNE ;
+}"""
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
         print('type=%r, value=%r' % (tok.type, tok.value))
