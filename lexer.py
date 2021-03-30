@@ -2,16 +2,15 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {VARIAVEL, FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
+    tokens = {FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
 
-    literals = { '=', '+', '-', '/', 
-                '*', '(', ')', ',', ';'}
+    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    FUNCAO = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     IGUALADOR = r'=='
     NUMERO = r'\d+'
