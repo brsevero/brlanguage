@@ -2,7 +2,7 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {FUNCAO, ATRIBUICAO, IGUALADOR, NUMERO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
+    tokens = {VARIAVEL, FUNCAO, ATRIBUICAO, IGUALADOR, INTEIRO, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
 
     literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
 
@@ -10,10 +10,10 @@ class analisador_lexico(Lexer):
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    FUNCAO = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     IGUALADOR = r'=='
-    NUMERO = r'\d+'
+    INTEIRO = r'\d+'
     MAIS = r'\+'
     MENOS = r'-'
     VEZES = r'\*'
@@ -21,12 +21,12 @@ class analisador_lexico(Lexer):
     PARENTESES_ESQ = r'\('
     PARENTESES_DIR = r'\)'
 
-    FUNCAO['if'] = SE
-    FUNCAO['elif'] = MAS_SE
-    FUNCAO['else'] = SENAO
-    FUNCAO['while'] = ENQUANTO
-    FUNCAO['for'] = IDENTADOR
-    FUNCAO['print'] = IMPRIMIR
+    VARIAVEL['SE'] = SE
+    VARIAVEL['MAS_SE'] = MAS_SE
+    VARIAVEL['SENAO'] = SENAO
+    VARIAVEL['ENQUANTO'] = ENQUANTO
+    VARIAVEL['IDENTADOR'] = IDENTADOR
+    VARIAVEL['IMPRIMIR'] = IMPRIMIR
 
 
     def NUMERO(self, t):
