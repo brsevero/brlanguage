@@ -13,8 +13,8 @@
    
    ```
    
-   FUNCAO PRINCIPAL(){
-   
+   INTEIRO FUNCAO PRINCIPAL(){
+      RETORNE 0;
    };
    
    ```
@@ -33,10 +33,10 @@
      | **Especificação de Tipo** | **Função** | **Comandos** | **Operadores Lógicos** |
      | :------:| :------: | :------: | :------: |
      | INTEIRO | FUNCAO | SE | VERDADE |
-     | FLUTUANTE | PRINCIPAL | SENAO | FALSO |
-     | CARACTERE |  | CASO_CONTRARIO | NAO |
-     | BOOLEANO |  | FAZ | E |
-     | FRASE |  | ENQUANTO | OU |
+     | FLUTUANTE | PRINCIPAL | OU_SE | FALSO |
+     | CARACTERE | LER | SENAO | NAO |
+     | BOOLEANO | IMPRIMIR | FAZ | E |
+     | FRASE | RETORNE | ENQUANTO | OU |
      |||ITERADOR||
      
 1. Especificação de Tipos:
@@ -145,8 +145,8 @@
       | Estrutura | Comando em Brl |
       | :---: | :---: |
       | if | SE |
-      | if \/ else | SE \/ ENTAO |
-      | if \/ elseif \/ else | SE \/ SENAO \/ CASO_CONTRARIO |
+      | if \/ else | SE \/ SENAO |
+      | if \/ elseif \/ else | SE \/ MAS_SE \/ SENAO |
       - A instrução SE controla a fluxo condicional. O bloco da instrução SE é executado se o valor da expressão for diferente de zero. Temos duas sintaxes para essa estrutura:
       ```
       
@@ -207,6 +207,7 @@
       | :---: | :---: |
       | for | ITERADOR |
       - A estrutura ITERADOR permite que seja repetida uma instrução composta por um número específico de vezes. O corpo da estrutura é executado zero ou mais vezes até que a condição seja verificada como falsa.
+      
       Sintaxe:
       ```
       
@@ -215,6 +216,78 @@
       };
       
       ```
+   1. Entrada e Saida
+      | Entrada | Saida |
+      | :---: | :---: |
+      |LER|IMPRIMIR|
+      - IMPRIMIR é a instrução de escrita na tela, recebe como parâmetro um dos tipos da linguagem , permite a formatação atravez da concatenação de cadeia de caracteres e variáveis.
+
+      Sintaxe:
+      ```
+
+      IMPRIMIR(frase_para_imprimir_na_tela);
+
+      ```
+      - LER é a instrução que lê algo, deve receber o tipo a ser lido e sua variável para referência.
+      ```
+
+      LER(TIPO, variavel_para_referencia);
+
+      ```
+1. Atribuição:
+   A atribuição é feita com operador "=", com a associatividade da direita para a esquerda, sempre.
+
+   Exemplo:
+   ```
+
+   a = b;
+
+   ```
+   *o valor da variável b está agora sendo atribuído para a*
+
+1. Funções:
+   - Na BRLanguage, temos a função PRINCIPAL e ela é obrigatória pois é por ela que o compilador começa sua execução.
+   - As funções devem ser definidas antes de serem chamadas.
+   - A passagem de parâmetro ocorre por valor na liguagem.
+   - Para o retorno de funções, utilizamos o operador RETORNE na última linha do escopo da função 
+   - A definição segue a regra abaixo:
+   ```
+
+   TIPO_DE_RETORNO nome_da_função(parametros){
+      comandos;
+      ...
+      ...
+      ...
+      RETORNE TIPO_DE_RETORNO
+
+   }
+
+   ```
+1. Exemplos:
+   - Alô Mundo:
+   ```
+
+   INTEIRO PRINCIPAL(){
+      IMPRIMIR("Alô Mundo!");
+      RETORNE 0;
+   }
+
+   ```
+   - Fibonacci:
+   ```
+
+   INTEIRO fibonacci(INTEIRO limite){
+      
+
+   }
+
+   INTEIRO PRINCIPAL(){
+      IMPRIMIR("Alô Mundo!");
+      RETORNE 0;
+   }
+
+   ```
+
    
    
    
@@ -236,5 +309,5 @@
    
    
    
-   
-   
+
+
