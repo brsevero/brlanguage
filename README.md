@@ -13,8 +13,8 @@
    
    ```
    
-   INTEIRO FUNCAO PRINCIPAL(){
-      RETORNE 0;
+   VAZIO FUNCAO PRINCIPAL(){
+      RETORNE ;
    };
    
    ```
@@ -37,7 +37,7 @@
      | CARACTERE | LER | SENAO | NAO |
      | BOOLEANO | IMPRIMIR | FAZ | E |
      | FRASE | RETORNE | ENQUANTO | OU |
-     |||ITERADOR||
+     |VAZIO||ITERADOR||
      
 1. Especificação de Tipos:
    - A linguagem é tipada estaticamente, o que significa que toda variavél precisa indicar o seu tipo ao ser declarada e esse tipo fica inculado a varíavel durante toda a sua vida;
@@ -48,6 +48,7 @@
      - BOOLEANO - Booleano
      - FRASE - cadeia de caractere de x tamanho máximo de caracteres
      - *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
+     - VAZIO - Tipo de dado que representa função sem retorno.
      
 
    1. Operação Suportadas:
@@ -267,26 +268,86 @@
    - Alô Mundo:
    ```
 
-   INTEIRO PRINCIPAL(){
+   VAZIO PRINCIPAL(){
       IMPRIMIR("Alô Mundo!");
-      RETORNE 0;
+      RETORNE ;
    }
 
    ```
+
    - Fibonacci:
    ```
 
-   INTEIRO fibonacci(INTEIRO limite){
-      
+   VAZIO fibonacci(INTEIRO limite){
+      INTEIRO contador;
+      INTEIRO um;
+      INTEIRO dois;
+      INTEIRO tres;
 
+      um = 1;
+      dois = 1;
+
+      if(limite == 0){
+         IMPRIMIR("0");
+      }
+      ENQUANTO(contador < limite){
+         SE(contador < 2){
+            IMPRIMIR("1");
+         }
+         SENAO{
+            tres = um + dois;
+            um = dois;
+            dois = tres;
+            IMPRIMIR(tres +++ " ");
+         }
+      }
+      contador = contador + 1;
    }
 
-   INTEIRO PRINCIPAL(){
-      IMPRIMIR("Alô Mundo!");
-      RETORNE 0;
+   VAZIO PRINCIPAL(){
+      INTEIRO limite;
+      LER(INTEIRO, limite);
+      fibonacci(limite);
+      RETORNE ;
    }
 
    ```
+
+   - Shell Sort
+   ```
+
+   INTEIRO shell(INTEIRO array[], INTEIRO tamanho){
+      INTEIRO i;
+      INTEIRO j;
+      INTEIRO valor;
+      INTEIRO h;
+
+      ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
+         #so alterando o h
+      }
+      ITERADOR( h = h/3 , h < 1 , ){
+         ITERADOR(i = h, i < tamanho, i = i + 1){
+            valor = array[i];
+            ITERADOR( j = i ­- h , j >= 0 E valor < array[j] , j = j ­- h){
+               array[j + h] = array[j];
+            }
+            array[j+h] = valor;
+         }
+      }
+      RETORNE array;
+   }
+
+   VAZIO PRINCIPAL(){
+      INTEIRO vetor[10];
+      INTEIRO saida[10];
+
+      vetor = [9, 8, 3, 2, 5, 1, 4, 7, 6, 0];
+
+      saida = shell(vetor, 10);
+   }
+
+   ```
+
 
    
    
