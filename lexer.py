@@ -2,7 +2,7 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {VARIAVEL, FUNCAO, ATRIBUICAO, IGUALADOR, INTEIRO, FLUTUANTE, CARACTERE, BOOLEANO, CARACTERES, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR}
+    tokens = {VARIAVEL, FUNCAO, RESERVADA, ATRIBUICAO, IGUALADOR, INTEIRO, FLUTUANTE, CARACTERE, BOOLEANO, CARACTERES, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR}
     # SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR
     literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
 
@@ -10,6 +10,14 @@ class analisador_lexico(Lexer):
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
+    @_(r'FUNCAO [a-zA-Z_][a-zA-Z0-9_]*')
+    def FUNCAO(self, t):
+        t.value = t.value[7:]
+        return t
+
+
+
+    # FUNCAO = r'FUNCAO [a-zA-Z_][a-zA-Z0-9_]*'
     VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     IGUALADOR = r'=='
@@ -24,17 +32,18 @@ class analisador_lexico(Lexer):
     PARENTESES_ESQ = r'\('
     PARENTESES_DIR = r'\)'
 
-
+    
 
     VARIAVEL['FALSO'] = BOOLEANO
     VARIAVEL['VERDADEIRO'] = BOOLEANO
-    VARIAVEL['SE'] = FUNCAO
-    VARIAVEL['MAS_SE'] = FUNCAO
-    VARIAVEL['SENAO'] = FUNCAO
-    VARIAVEL['ENQUANTO'] = FUNCAO
-    VARIAVEL['IDENTADOR'] = FUNCAO
-    VARIAVEL['IMPRIMIR'] = FUNCAO
-    VARIAVEL['PRINCIPAL'] = FUNCAO
+    VARIAVEL['SE'] = RESERVADA
+    VARIAVEL['MAS_SE'] = RESERVADA
+    VARIAVEL['SENAO'] = RESERVADA
+    VARIAVEL['ENQUANTO'] = RESERVADA
+    VARIAVEL['IDENTADOR'] = RESERVADA
+    VARIAVEL['IMPRIMIR'] = RESERVADA
+    VARIAVEL['PRINCIPAL'] = RESERVADA
+    VARIAVEL['FUNCAO'] = RESERVADA
 
     def NUMERO(self, t):
         t.value = int(t.value)
@@ -45,7 +54,7 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = """('alo mundo')
+    data = """FUNCAO principal(
 """
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
