@@ -1,6 +1,8 @@
-import BasicLexer as bl
-lexer = bl.BasicLexer()
+from lexico import analisador_lexico
 
-text = "1 + 2"
-print(lexer.tokenize(text))
-lexer.tokenize(text)
+if __name__ == '__main__':
+    with open('shell.brl','r') as data:
+        lexer = analisador_lexico()
+        for linhas in data:
+            for tok in lexer.tokenize(linhas):
+                print('type=%r, value=%r, linha = %i' % (tok.type, tok.value, lexer.linha))

@@ -1,6 +1,8 @@
 from sly import Lexer
 
 class analisador_lexico(Lexer):
+    def __init__(self):
+        self.linha = int(1)
 
     tokens = {VARIAVEL, ATRIBUICAO, CARACTERE, CARACTERES,  MAIS, MENOS, VEZES, DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, CHAVE_ESQ, CHAVE_DIR,
     MAIOR_QUE, MENOR_QUE, CONCHETE_DIR,CONCHETE_ESQ, IGUALADOR, DIFERENTE, MAIOR_IGUAL, MENOR_IGUAL, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR,  INTEIRO, VIRGULA, PONTO_VIR, ASPAS, ASPAS_DU, FUNCAO, RESERVADA, CONCATENACAO, BOOLEANO, VAZIO, NUMERO}
@@ -10,7 +12,6 @@ class analisador_lexico(Lexer):
     ignore = ' \t'
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
-
 
     VARIAVEL = r'[a-zA-Z][a-zA-Z0-9_]*'
     IGUALADOR = r'\=='
@@ -71,43 +72,17 @@ class analisador_lexico(Lexer):
         return t
 
     def ignore_newline(self, t):
-        self.lineno += len(t.value)    
+        self.lineno += len(t.value)
+
+    @_(r'\n+')
+    def ignore_newline(self, t):
+        self.linha += len(t.value)
 
 
 if __name__ == '__main__':
-    data = """INTEIRO FUNCAO shell(INTEIRO array[], INTEIRO tamanho){
-   INTEIRO i;
-   INTEIRO j;
-   INTEIRO valor;
-   INTEIRO h;
-
-   ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
-      #so alterando o h
-   }
-
-   ITERADOR( h = h/3 , h < 1 , ){
-      ITERADOR(i = h, i < tamanho, i = i + 1){
-         valor = array[i];
-         ITERADOR( j = i ­- h , j >= 0 E valor < array[j] , j = j ­- h){
-            array[j + h] = array[j];
-         }
-
-         array[j+h] = valor;
-      }
-   }
-
-   RETORNE array;
-}
-
-VAZIO FUNCAO PRINCIPAL(){
-   INTEIRO vetor[10];
-   INTEIRO saida[10];
-
-   vetor = [9, 8, 3, 2, 5, 1, 4, 7, 6, 0];
-
-   saida = shell(vetor, 10);
-}
-   """
-    lexer = analisador_lexico()
-    for tok in lexer.tokenize(data):
-        print('type=%r, value=%r' % (tok.type, tok.value))
+    with open('shell.brl','r') as data:
+        lexer = analisador_lexico()
+        for linhas in data:
+            for tok in lexer.tokenize(linhas):
+                print('type=%r, value=%r, linha = %i' % (tok.type, tok.value, tok.lineno))
+            
