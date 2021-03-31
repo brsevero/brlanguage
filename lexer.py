@@ -2,26 +2,25 @@ from sly import Lexer
 
 class analisador_lexico(Lexer):
 
-    tokens = {VARIAVEL, FUNCAO, RESERVADA, ATRIBUICAO, IGUALADOR, INTEIRO, FLUTUANTE, CARACTERE, BOOLEANO, CARACTERES, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR}
+    tokens = {VARIAVEL, FUNCAO, RESERVADA, ATRIBUICAO, IGUALADOR, VAZIO, INTEIRO, FLUTUANTE, CARACTERE, BOOLEANO, CARACTERES, MAIS, MENOS, VEZES,DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR}
     # SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR
-    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
+    literals = { '=', '+', '-', '*', '/', '(', ')','{','}','>','<','==','!=','>=','<=', ',', ';',"'","\"",}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
-    ignore_newline = r'\n+'
+
+    @_(r'\n+')
+    def ignore_newline(self, t):   
+        self.lineno += len(t.value)
 
     @_(r'FUNCAO [a-zA-Z_][a-zA-Z0-9_]*')
     def FUNCAO(self, t):
         t.value = t.value[7:]
         return t
 
-
-
-    # FUNCAO = r'FUNCAO [a-zA-Z_][a-zA-Z0-9_]*'
     VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
     IGUALADOR = r'=='
-    INTEIRO = r'\d+'
     # FLUTUANTE = r'\d+'
     CARACTERE = r'[\'|\"]\S[\'|\"]'
     CARACTERES = r'[\'\"].*?[\'\"]'
@@ -31,6 +30,7 @@ class analisador_lexico(Lexer):
     DIVIDIR = r'/'
     PARENTESES_ESQ = r'\('
     PARENTESES_DIR = r'\)'
+    
 
     
 
@@ -44,8 +44,11 @@ class analisador_lexico(Lexer):
     VARIAVEL['IMPRIMIR'] = RESERVADA
     VARIAVEL['PRINCIPAL'] = RESERVADA
     VARIAVEL['FUNCAO'] = RESERVADA
+    VARIAVEL['VAZIO'] = RESERVADA
+    VARIAVEL['RETORNE'] = RESERVADA
 
-    def NUMERO(self, t):
+    @_(r'\d+')
+    def INTEIRO(self, t):
         t.value = int(t.value)
         return t
 
@@ -54,7 +57,31 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = """FUNCAO principal(
+    data = """VAZIO FUNCAO fibonacci(INTEIRO limite){
+   INTEIRO contador;
+   INTEIRO um;
+   INTEIRO dois;
+   INTEIRO tres;
+
+   um = 1;
+   dois = 1;
+
+   if(limite == 0){
+      IMPRIMIR("0");
+   }
+   ENQUANTO(contador < limite){
+      SE(contador < 2){
+         IMPRIMIR("1");
+      }
+      SENAO{
+         tres = um + dois;
+         um = dois;
+         dois = tres;
+         IMPRIMIR(tres +++ " ");
+      }
+   }
+   contador = contador + 1;
+}
 """
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
