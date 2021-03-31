@@ -1,28 +1,34 @@
 from sly import Lexer
 
-class Meulexico(Lexer):
-    #lista de tokens que eu preciso obrigatoriamente e sempre em UPCASE
-    #lista de coisas ignoradas em ER sempre com aspas simples
-    #lista de ER para os tokens
+class analisador_lexico(Lexer):
 
-    tokens = {ID, ATRIBUICAO, NUMERO, SOMA, IF, ELSE, WHILE}
+    tokens = {VARIAVEL, FUNCAO, ATRIBUICAO, IGUALADOR, INTEIRO, MAIS, MENOS, VEZES, DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR,CHAVE_ESQ, CHAVE_DIR4, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR}
 
-    #ignorar coisa só precisa comecar com "ignore_"
+    literals = { '=', '+', '-', '/', '*', '(', ')','{','}', ',', ';',"'","\"",}
+
     ignore = ' \t'
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    ID = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    VARIAVEL = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ATRIBUICAO = r'='
-    NUMERO = r'\d+'
-    SOMA = r'\+'
+    IGUALADOR = r'=='
+    INTEIRO = r'\d+'
+    MAIS = r'\+'
+    MENOS = r'-'
+    VEZES = r'\*'
+    DIVIDIR = r'/'
+    PARENTESES_ESQ = r'\('
+    PARENTESES_DIR = r'\)'
 
-    # Special cases
-    ID['if'] = IF
-    ID['else'] = ELSE
-    ID['while'] = WHILE
+    VARIAVEL['SE'] = SE
+    VARIAVEL['MAS_SE'] = MAS_SE
+    VARIAVEL['SENAO'] = SENAO
+    VARIAVEL['ENQUANTO'] = ENQUANTO
+    VARIAVEL['IDENTADOR'] = IDENTADOR
+    VARIAVEL['IMPRIMIR'] = IMPRIMIR
 
-    def NUMERO(self, t):
+    def INTEIRO(self, t):
         t.value = int(t.value)
         return t
 
@@ -31,14 +37,10 @@ class Meulexico(Lexer):
 
 
 if __name__ == '__main__':
-    texto = """x = 1 + 2
-            #comentario"""
-    compilador = Meulexico()
-    #lista_de_tokens = []
-    for x in compilador.tokenize(texto):
-        #lista_de_tokens.append((x.type,x.value))
-        print('tipo = %r, valor = %r' % (x.type,x.value))
-    #print(lista_de_tokens)
-    print(compilador.lineno)
-    print(compilador)
-
+    data = """VAZIO PRINCIPAL(){
+   IMPRIMIR("Alo Mundo");
+   RETORNE ;
+}"""
+    lexer = analisador_lexico()
+    for tok in lexer.tokenize(data):
+        print('type=%r, value=%r' % (tok.type, tok.value))
