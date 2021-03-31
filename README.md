@@ -26,9 +26,9 @@
    - A linguagem permite comentários por linha utilizando o delimitador de comentários: "#".
 
 ### 3. Características Léxicas:
-   - Identificadores não podem conter numeros;
-   - Identificadores são em lowercase, ou seja, em minúsculo;
-   - Identificadores devem ter no máximo tamanho 8 e não podem conter caracteres especiais, apenas o alfabeto latino padrão, e não devem coincidir com as palavras reservadas da linguagem.
+   - Identificadores não podem começar com numeros e recomendasse que sejam escritos em minúsculo;
+   - Identificadores podem conter "-" ou "_" na composição mas nenhum outro símbolo;
+   - Identificadores devem ter no máximo tamanho 32 caracteres e não podem conter caracteres especiais, apenas o alfabeto latino padrão, e não devem coincidir com as palavras reservadas da linguagem.
    - Lista de palavras reservadas da linguagem:
      | **Especificação de Tipo** | **Função** | **Comandos** | **Operadores Lógicos** |
      | :------:| :------: | :------: | :------: |
@@ -36,7 +36,7 @@
      | FLUTUANTE | PRINCIPAL | OU_SE | FALSO |
      | CARACTERE | LER | SENAO | NAO |
      | BOOLEANO | IMPRIMIR | FAZ | E |
-     | FRASE | RETORNE | ENQUANTO | OU |
+     | CARACTERES | RETORNE | ENQUANTO | OU |
      |VAZIO||ITERADOR||
      
 ### 4. Especificação de Tipos:
@@ -46,7 +46,7 @@
      - FLUTUANTE - Ponto flutuante de x tamanho em bits
      - CARACTERE - Caractere
      - BOOLEANO - Booleano
-     - FRASE - cadeia de caractere de x tamanho máximo de caracteres
+     - CARACTERES - cadeia de caractere de x tamanho máximo de caracteres
      - *tipo_do vetor* *identificador_do_vetor*[tamanho] - Arranjos unidimencionais de qualquer tipo
      - VAZIO - Tipo de dado que representa função sem retorno.
      
@@ -59,7 +59,7 @@
         | FLUTUANTE | atribuição, aritméticas, relacionais |
         | CARACTERE | atribuição, relacionais |
         | BOOLEANO | atribuição, relacionais |
-        | FRASE | atribuição, relacionais, concatenação |
+        | CARACTERES | atribuição, relacionais, concatenação |
         | *vetor* | atribuição |
    1. Coerção:
       - A linguagem prevê coerção autômatica entre o tipo INTEIRO e FLUTUANTE. Onde, se um número do tipo ponto flutuante for atribuído a uma variável do tipo inteiro, o valor da variável será apenas a parte inteira do ponto flutuando e na forma de um inteiro se atribuído a um ponto flutuante, a parte  inteira será o número e a parte decimal será zero.
@@ -83,7 +83,7 @@
           - FLUTUANTE: iniciado com valor zero(0.0);
           - CARACTERE: iniciado com valor " " (espaço em branco, 32 no código ASCII);
           - BOOLEANO: iniciado com valor FALSE;
-          - FRASE:  iniciado com o valor "" (cadeia de caracteres vazia);
+          - CARACTERES:  iniciado com o valor "" (cadeia de caracteres vazia);
           - *VETOR*: iniciado com o valor padrão do tipo no qual foi definido.
     1. Escopo:
        1. Na BRlanguege, todas as variáveis são globais, logo vistas em todo o programa.
@@ -125,21 +125,23 @@
       
       |Operador|Operação|
       | :---: | :---: |
-      | +++ | concatenação |
+      | ++ | concatenação |
       
     1. Precedência e Associatividade:
-       - Conforme a tabela abaixo, da ordem da mais alta para a mais baixa vemos a Precedência e os operadores segue a Associatividade espeficificada:
-          |Operador|Associatividade|
-          | :---: | :---: |
-          | NAO | direita para esquerda |
-          |\- (negativo unário)| direita para esquerda |
-          | \* \/ | esquerda para direita |
-          | \+ \- | esquerda para direita |
-          | \< \<= \> \>= | esquerda para direita |
-          | \== \!= | esquerda para direita |
-          | E | esquerda para direita |
-          | OU | esquerda para direita |
-        - Podemos utilizar parênteses para alterar a precedência dos operadores acima.
+   - Conforme a tabela abaixo, da ordem da mais alta para a mais baixa vemos a Precedência e os operadores segue a Associatividade espeficificada:
+
+   |Operador|Associatividade|
+   | :---: | :---: |
+   | NAO | direita para esquerda |
+   |\- (negativo unário)| direita para esquerda |
+   | \* \/ | esquerda para direita |
+   | \+ \- | esquerda para direita |
+   | \< \<= \> \>= | esquerda para direita |
+   | \== \!= | esquerda para direita |
+   | E | esquerda para direita |
+   | OU | esquerda para direita |
+   
+   - Podemos utilizar parênteses para alterar a precedência dos operadores acima.
 
 ### 7. Instruções:
    1. Estrutura condicional de uma e duas vias:
@@ -162,7 +164,7 @@
       SE(expressao_logica){
          lista_de_comandos_1;
       }
-      ENTAO(espressao_logica){
+      SENAO(espressao_logica){
          lista_de_comandos_2;
       };
       ```
@@ -173,10 +175,10 @@
       SE(expressao_logica){
          lista_de_comandos_1;
       }
-      SENAO(expressao_logica){
+      MAS_SE(expressao_logica){
          lista_de_comandos_2;
       }
-      ENTAO(espressao_logica){
+      SENAO(espressao_logica){
          lista_de_comandos_3;
       };
       ```
@@ -287,7 +289,7 @@
       um = 1;
       dois = 1;
 
-      if(limite == 0){
+      SE(limite == 0){
          IMPRIMIR("0");
       }
       ENQUANTO(contador < limite){
@@ -298,7 +300,7 @@
             tres = um + dois;
             um = dois;
             dois = tres;
-            IMPRIMIR(tres +++ " ");
+            IMPRIMIR(tres ++ " ");
          }
       }
       contador = contador + 1;
