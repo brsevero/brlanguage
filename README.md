@@ -125,7 +125,7 @@
       
       |Operador|Operação|
       | :---: | :---: |
-      | ++ | concatenação |
+      | & | concatenação |
       
     1. Precedência e Associatividade:
    - Conforme a tabela abaixo, da ordem da mais alta para a mais baixa vemos a Precedência e os operadores segue a Associatividade espeficificada:
@@ -252,11 +252,12 @@
    - Na BRLanguage, temos a função PRINCIPAL e ela é obrigatória pois é por ela que o compilador começa sua execução.
    - As funções devem ser definidas antes de serem chamadas.
    - A passagem de parâmetro ocorre por valor na liguagem.
-   - Para o retorno de funções, utilizamos o operador RETORNE na última linha do escopo da função 
+   - Para Definir uma função utilizamos a palavra reservada FUNCAO antes do seu identificador e depois do seu tipo de retorno.
+   - Para o retorno de funções, utilizamos a palavra reservada RETORNE na última linha do escopo da função 
    - A definição segue a regra abaixo:
    ```
 
-   TIPO_DE_RETORNO nome_da_função(parametros){
+   TIPO_DE_RETORNO FUNCAO nome_da_função(parametros){
       comandos;
       ...
       ...
@@ -270,7 +271,7 @@
    - Alô Mundo:
    ```
 
-   VAZIO PRINCIPAL(){
+   VAZIO FUNCAO PRINCIPAL(){
       IMPRIMIR("Alô Mundo!");
       RETORNE ;
    }
@@ -280,7 +281,7 @@
    - Fibonacci:
    ```
 
-   VAZIO fibonacci(INTEIRO limite){
+   VAZIO FUNCAO fibonacci(INTEIRO limite){
       INTEIRO contador;
       INTEIRO um;
       INTEIRO dois;
@@ -292,21 +293,24 @@
       SE(limite == 0){
          IMPRIMIR("0");
       }
+
       ENQUANTO(contador < limite){
          SE(contador < 2){
             IMPRIMIR("1");
          }
+
          SENAO{
             tres = um + dois;
             um = dois;
             dois = tres;
-            IMPRIMIR(tres ++ " ");
+            IMPRIMIR(tres & " ");
          }
       }
+
       contador = contador + 1;
    }
 
-   VAZIO PRINCIPAL(){
+   VAZIO FUNCAO PRINCIPAL(){
       INTEIRO limite;
       LER(INTEIRO, limite);
       fibonacci(limite);
@@ -318,7 +322,7 @@
    - Shell Sort
    ```
 
-   INTEIRO shell(INTEIRO array[], INTEIRO tamanho){
+   INTEIRO FUNCAO shell(INTEIRO array[], INTEIRO tamanho){
       INTEIRO i;
       INTEIRO j;
       INTEIRO valor;
@@ -327,19 +331,22 @@
       ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
          #so alterando o h
       }
+
       ITERADOR( h = h/3 , h < 1 , ){
          ITERADOR(i = h, i < tamanho, i = i + 1){
             valor = array[i];
             ITERADOR( j = i ­- h , j >= 0 E valor < array[j] , j = j ­- h){
                array[j + h] = array[j];
             }
+
             array[j+h] = valor;
          }
       }
+
       RETORNE array;
    }
 
-   VAZIO PRINCIPAL(){
+   VAZIO FUNCAO PRINCIPAL(){
       INTEIRO vetor[10];
       INTEIRO saida[10];
 

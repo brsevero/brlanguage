@@ -3,9 +3,9 @@ from sly import Lexer
 class analisador_lexico(Lexer):
 
     tokens = {VARIAVEL, ATRIBUICAO, CARACTERE, CARACTERES,  MAIS, MENOS, VEZES, DIVIDIR, PARENTESES_ESQ, PARENTESES_DIR, CHAVE_ESQ, CHAVE_DIR,
-    MAIOR_QUE, MENOR_QUE, IGUALADOR, DIFERENTE, MAIOR_IGUAL, MENOR_IGUAL, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR,  INTEIRO, VIRGULA, PONTO_VIR, ASPAS, ASPAS_DU, FUNCAO, RESERVADA, CONCATENACAO, BOOLEANO, VAZIO, NUMERO}
+    MAIOR_QUE, MENOR_QUE, CONCHETE_DIR,CONCHETE_ESQ, IGUALADOR, DIFERENTE, MAIOR_IGUAL, MENOR_IGUAL, SE, MAS_SE, SENAO, ENQUANTO, IDENTADOR, IMPRIMIR,  INTEIRO, VIRGULA, PONTO_VIR, ASPAS, ASPAS_DU, FUNCAO, RESERVADA, CONCATENACAO, BOOLEANO, VAZIO, NUMERO}
 
-    literals = { '=', '+', '-', '*', '/', '(', ')','{','}','>','<','==','!=','>=','<=', ',', ';',"'","\"",}
+    literals = { '=', '+', '-', '*', '/', '(', ')','{','}','[',']','>','<','==','!=','>=','<=', ',', ';',"'","\"",}
 
     ignore = ' \t'
     ignore_comment = r'\#.*'
@@ -13,6 +13,12 @@ class analisador_lexico(Lexer):
 
 
     VARIAVEL = r'[a-zA-Z][a-zA-Z0-9_]*'
+    IGUALADOR = r'\=='
+    MAIOR_QUE = r'\>'
+    MENOR_QUE = r'\<'
+    DIFERENTE = r'\!='
+    MAIOR_IGUAL = r'\>\='
+    MENOR_IGUAL = r'\<='
     ATRIBUICAO = r'\='
     NUMERO = r'\d+'
     CARACTERE = r'[\'|\"]\S[\'|\"]'
@@ -25,17 +31,13 @@ class analisador_lexico(Lexer):
     PARENTESES_DIR = r'\)'
     CHAVE_ESQ = r'\{'
     CHAVE_DIR = r'\}'
-    MAIOR_QUE = r'\>'
-    MENOR_QUE = r'\<'
-    IGUALADOR = r'\=='
-    DIFERENTE = r'\!='
-    MAIOR_IGUAL = r'\>='
-    MENOR_IGUAL = r'\<='
+    CONCHETE_DIR = r'\['
+    CONCHETE_ESQ = r'\]'
     VIRGULA = r'\,'
     PONTO_VIR = r'\;'
     ASPAS = r'\''
     ASPAS_DU = r'\"'
-    CONCATENACAO = r'\++'
+    CONCATENACAO = r'\&'
 
 
     VARIAVEL['FUNCAO'] = RESERVADA
@@ -59,7 +61,7 @@ class analisador_lexico(Lexer):
     VARIAVEL['FALSO'] = BOOLEANO
     VARIAVEL['VERDADEIRO'] = BOOLEANO
     VARIAVEL['VAZIO'] = VAZIO
-    VARIAVEL['INTEIRO'] = INTEIRO
+    VARIAVEL['INTEIRO'] = RESERVADA
     
     
 
@@ -73,39 +75,39 @@ class analisador_lexico(Lexer):
 
 
 if __name__ == '__main__':
-    data = """VAZIO fibonacci(INTEIRO limite){
-   INTEIRO contador;
-   INTEIRO um;
-   INTEIRO dois;
-   INTEIRO tres;
+    data = """INTEIRO FUNCAO shell(INTEIRO array[], INTEIRO tamanho){
+   INTEIRO i;
+   INTEIRO j;
+   INTEIRO valor;
+   INTEIRO h;
 
-   um = 1;
-   dois = 1;
-
-   if(limite == 0){
-      IMPRIMIR("0");
+   ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
+      #so alterando o h
    }
-   ENQUANTO(contador < limite){
-      SE(contador < 2){
-         IMPRIMIR("1");
-      }
-      SENAO{
-         tres = um + dois;
-         um = dois;
-         dois = tres;
-         IMPRIMIR(tres ++ " ");
+
+   ITERADOR( h = h/3 , h < 1 , ){
+      ITERADOR(i = h, i < tamanho, i = i + 1){
+         valor = array[i];
+         ITERADOR( j = i ­- h , j >= 0 E valor < array[j] , j = j ­- h){
+            array[j + h] = array[j];
+         }
+
+         array[j+h] = valor;
       }
    }
-   contador = contador + 1;
+
+   RETORNE array;
 }
 
-VAZIO PRINCIPAL(){
-   INTEIRO limite;
-   LER(INTEIRO, limite);
-   fibonacci(limite);
-   RETORNE ;
+VAZIO FUNCAO PRINCIPAL(){
+   INTEIRO vetor[10];
+   INTEIRO saida[10];
+
+   vetor = [9, 8, 3, 2, 5, 1, 4, 7, 6, 0];
+
+   saida = shell(vetor, 10);
 }
-}"""
+   """
     lexer = analisador_lexico()
     for tok in lexer.tokenize(data):
         print('type=%r, value=%r' % (tok.type, tok.value))
