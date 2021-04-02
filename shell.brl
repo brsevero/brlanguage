@@ -1,25 +1,25 @@
-   INTEIRO FUNCAO shell(INTEIRO array[], INTEIRO tamanho){
-   INTEIRO i;
-   INTEIRO j;
-   INTEIRO valor;
-   INTEIRO h;
+INTEIRO FUNCAO shell(INTEIRO array[], INTEIRO tamanho){
+INTEIRO i;
+INTEIRO j;
+INTEIRO valor;
+INTEIRO h;
 
-   ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
-      #so alterando o h
-   }
+ITERADOR(h = 1, h < tamanho, h = h * 3 + 1){
+   #so alterando o h
+}
 
-   ITERADOR( h = h/3 , h < 1 , ){
-      ITERADOR(i = h, i < tamanho, i = i + 1){
-         valor = array[i];
-         ITERADOR( j = i - h , j >= 0 E valor < array[j] , j = j  h){
-            array[j + h] = array[j];
-         }
-
-         array[j+h] = valor;
+ITERADOR( h = h/3 , h < 1 , ){
+   ITERADOR(i = h, i < tamanho, i = i + 1){
+      valor = array[i];
+      ITERADOR( j = i - h , j >= 0 E valor < array[j] , j = j  h){
+         array[j + h] = array[j];
       }
-   }
 
-   RETORNE array;
+      array[j+h] = valor;
+   }
+}
+
+RETORNE array;
 }
 
 VAZIO FUNCAO PRINCIPAL(){
