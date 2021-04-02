@@ -2,7 +2,7 @@ import re
 
 class Lexer():
     def __init__(self):
-        #self.file = file
+        self.tokens = []
         self.linhas = int(0)
         self.colunas = int(0)
 
@@ -105,32 +105,36 @@ class Lexer():
             ' \t' : BRANCO
             }
 
-        for i in regras:
-            if re.match(' \t', token):
-                return regras[i]
-        
         for i in palavras_reservadas:
             if i == token:
                 return palavras_reservadas[i]
+
+        for i in regras:
+            if re.match(i, token):
+                return regras[i]
+        
+        return NAO_RECONHECIDO
+    
+    def separar(self,linha, delimitador):
+        linha = linha.replace(delimitador," " + delimitador + " ")
+        return linha
+
+
     def criar_tokens(self, line):
-        tokens = []
-        lexema = ""
-        for i in line:
-            #print(i)
-            lexema += i
-            if i == ' ':
-                print('entrou')
-                tokens.append(lexema)
-                lexema = ""
-        return tokens
+        delimitadores = ['(',')','{','}','[',']',',',';']
+        for i in delimitadores:
+            line = self.separar(line,i)
+        return line.split() 
 
 
 
 
 if __name__ == '__main__':
     a = Lexer()
-    with open('principal.brl', 'r') as file:
+    with open('shell.brl', 'r') as file:
         for linhas in file:
-            print(linhas)
-            print(a.criar_tokens(linhas))
-            input()
+            a.tokens.extend(a.criar_tokens(linhas))
+        print(a.tokens)
+        for i in a.tokens:
+            print(a.regras(i))
+            
