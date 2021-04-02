@@ -104,7 +104,7 @@ class Token():
             '\"' : ASPAS_DU,
             '\&' : CONCATENACAO,
             '\#' : COMENTARIO
-            #implementar o tipo: float
+            # implementar o tipo: float
             }
 
         for i in palavras_reservadas:
