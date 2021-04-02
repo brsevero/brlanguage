@@ -104,6 +104,7 @@ class Token():
             '\"' : ASPAS_DU,
             '\&' : CONCATENACAO,
             '\#' : COMENTARIO
+            #implementar o tipo: float
             }
 
         for i in palavras_reservadas:
@@ -116,13 +117,13 @@ class Token():
         
         return NAO_RECONHECIDO
     
-    def separar(self,linha, delimitador):
+    def separar(self, linha, delimitador):
         linha = linha.replace(delimitador," " + delimitador + " ")
         return linha
 
 
     def criar_tokens(self, line):
-        delimitadores = ['(',')','{','}','[',']',',',';','+','-','*','/']
+        delimitadores = ['(',')','{','}','[',']',',',';','+','-','*','/','=']
         for i in delimitadores:
             line = self.separar(line,i)
         return line.split() 
@@ -133,7 +134,7 @@ class Token():
         self.linhas += 1
         self.tokens.extend(self.criar_tokens(linha))
         for i in self.tokens:
-            print('[{}, coluna: {}'.format(self.linhas,linha.find(i)), end=' ')
+            print('          [{}, {}]'.format(self.linhas, linha.find(i)), end=' ')
             print(self.regras(i),i,end='')
             input()
         self.tokens = []
@@ -146,5 +147,6 @@ if __name__ == '__main__':
     with open('shell.brl', 'r') as file:
         for linha in file:
             a.nextToken(linha)
+
             
         
